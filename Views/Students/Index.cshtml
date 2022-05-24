@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ScholarshipProgramProject.Models.Student>
+
+@{
+    ViewData["Title"] = "Enrolled List";
+}
+
+<h1>Enrolled List</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Last_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email_address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Login_password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Birth_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.University_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Major_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gpa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Resume_file)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.First_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Last_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email_address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login_password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birth_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.University_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Major_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gpa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resume_file)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.National_id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.National_id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.National_id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
